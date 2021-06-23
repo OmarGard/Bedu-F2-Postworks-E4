@@ -1,2 +1,14 @@
 # Bedu-S2-Postworks-E4
-Repo de los postworks de Bedu - DataScience-Fase2 del equipo 4
+Repositorio de los postworks de Bedu - DataScience-Fase2 del super equipazo 4
+
+## Contenido
+1. [postwork_S1](https://github.com/OmarGard/Bedu-S2-Postworks-E4/blob/main/postwork_S1.R): Tabla de frecuencias y probabilidades marginales
+2. [postwork_S2](https://github.com/OmarGard/Bedu-S2-Postworks-E4/blob/main/postwork_S2.R): Cargado de datos desde la web y uso de la función `lapply`
+
+### Integrantes: 
+* Alan Sandoval 
+* [Edgar Israel Casanova Cardoz](https://github.com/ecardoz) 
+* [Lizzeth Gómez Rodríguez](https://github.com/LIZZETHGOMEZ) 
+* [Oscar Echevezte](https://github.com/Oscar2401) 
+* Omar Garduza 
+* Paul O'Heal Flores
