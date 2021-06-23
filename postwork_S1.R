@@ -40,11 +40,11 @@
   
   #La probabilidad (marginal) de que el equipo que juega en casa anote x goles (x = 0, 1, 2, ...)
   
-  x <- 1
+  x <- 1 #Este entero representa la posicion del array en el paste se resta una unidad para presentar la cantidad de goles posicion 1 es igual a goles 0 y así sucesivamente
   paste("La probabilidad de que la casa anote", x-1, "goles es de: ", goles.FRTH[x]*100, "%")
   
   #La probabilidad (marginal) de que el equipo que juega como visitante anote y goles (y = 0, 1, 2, ...)
-  y <- 2
+  y <- 2 #Este entero representa la posicion del array en el paste se resta una unidad para presentar la cantidad de goles posicion 1 es igual a goles 0 y así sucesivamente
   paste("La probabilidad de que el visitente anote", y-1, "goles es de: ", goles.FRTA[y]*100, "%")
   #La probabilidad (conjunta) de que el equipo que juega en casa anote x goles y el equipo que juega 
   #como visitante anote y goles (x = 0, 1, 2, ..., y = 0, 1, 2, ...)
