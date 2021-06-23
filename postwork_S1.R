@@ -16,61 +16,39 @@
   
   
   # 1. Cargamos los datos
-  df = read.csv("https://www.football-data.co.uk/mmz4281/1920/SP1.csv")
+  data.soccer <- read.csv("https://www.football-data.co.uk/mmz4281/1920/SP1.csv")
+  data.soccer
   
-  # 2. Extraemos columnas de goles en casa y visitantes
-  goles <- list(df$FTHG, df$FTAG)
-  goles
+  #Del data frame que resulta de importar los datos a R, extrae las columnas que 
+  #contienen los números de goles anotados por los equipos que jugaron en casa (FTHG) 
+  #y los goles anotados por los equipos que jugaron como visitante (FTAG)
+  data.soccer$FTHG
+  data.soccer$FTAG
   
-  # 3. Consultar la funcion table()
-  ?table # Crea una tabla de frecuencias de un conjunto de datos
+  #Consulta cómo funciona la función table en R al ejecutar en la consola ?table
+  ?table
   
+  #Posteriormente elabora tablas de frecuencias relativas para estimar las siguientes probabilidades:
+  # Qué es frecuencia relativa??? https://economipedia.com/definiciones/frecuencia-relativa.html
+  #Conteo de goles
+  goles.TH <- table(data.soccer$FTHG)
+  goles.TA <- table(data.soccer$FTAG)
+  #frecuencias relativas
+  goles.FRTH <- goles.TH/sum(goles.TH)
+  goles.FRTA <- goles.TA/sum(goles.TA)
+  #prop.table(goles.TH) #esta línea es solo para comprobar resultados prop.table ya hace todo el calculo.
   
+  #La probabilidad (marginal) de que el equipo que juega en casa anote x goles (x = 0, 1, 2, ...)
   
-  # Posteriormente elabora tablas de frecuencias relativas para estimar las siguientes probabilidades:
-  # 1. La probabilidad (marginal) de que el equipo que juega en casa anote x goles (x = 0, 1, 2, ...)
-  # 2. La probabilidad (marginal) de que el equipo que juega como visitante anote y goles (y = 0, 1, 2, ...)
-  # 3. La probabilidad (conjunta) de que el equipo que juega en casa anote x goles y 
-  # el equipo que juega como visitante anote y goles (x = 0, 1, 2, ..., y = 0, 1, 2, ...)
+  x <- 1
+  paste("La probabilidad de que la casa anote", x-1, "goles es de: ", goles.FRTH[x]*100, "%")
   
-  # Cargamos la siguiente biblioteca para facilitar la manifuacion del dataset
-  library(dplyr)
+  #La probabilidad (marginal) de que el equipo que juega como visitante anote y goles (y = 0, 1, 2, ...)
+  y <- 2
+  paste("La probabilidad de que el visitente anote", y-1, "goles es de: ", goles.FRTA[y]*100, "%")
+  #La probabilidad (conjunta) de que el equipo que juega en casa anote x goles y el equipo que juega 
+  #como visitante anote y goles (x = 0, 1, 2, ..., y = 0, 1, 2, ...)
   
-  # Veamos los valores de las variables que ocuparemos (numero de goles)
-  sort(unique(df$FTHG))
-  sort(unique(df$FTAG))
+  paste("La probabilidad de que la casa anote", x-1, "goles y el visitente anote", y-1, "goles es de:", (goles.FRTH[x]*goles.FRTA[y])*100, "%")
   
-  freq_home <- data.frame(table(goles[1]))
-  freq_away <- data.frame(table(goles[2]))
-  
-  freq_home <- rename(freq_home, goles = Var1)
-  freq_away <- rename(freq_away, goles = Var1)
-  
-  # Agregando probabilidades marginales
-  freq_home <- mutate(freq_home, goles = as.numeric(goles), prob_home = Freq/sum(Freq))
-  freq_away <- mutate(freq_away, goles = as.numeric(goles), prob_away = Freq/sum(Freq))
-  
-  
-  # Tabla Final con Frecuencia y probabilidaddes marginales
-  tabla <- full_join(freq_home, freq_away, by = 'goles')
-  tabla
-  
-  
-  ###### REVISAR ESTA PARTE DE PROBA CONJUNTA
-  conjunta <- data_frame()
-  indice <- 1
-  
-
-  # probabilidad conjunta
-  for (i in 1:length(freq_home$goles)) {
-    for (j in 1:length(freq_away$goles)) {
-      conjunta[indice,1] <- freq_home$goles[i]
-      conjunta[indice,2] <- freq_away$goles[j]
-      conjunta[indice,3] <- freq_home$prob[i] * freq_away$prob[j]
-      indice <- indice + 1
-    }
-  }
-  
-  conjunta <- rename(conjunta, goles_casa = 1, goles_visita = 2, probabilidad = 3)
-  conjunta
   
