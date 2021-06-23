@@ -10,5 +10,5 @@ Repositorio de los postworks de Bedu - DataScience-Fase2 del super equipazo 4
 * [Edgar Israel Casanova Cardoz](https://github.com/ecardoz) 
 * [Lizzeth Gómez Rodríguez](https://github.com/LIZZETHGOMEZ) 
 * [Oscar Echevezte](https://github.com/Oscar2401) 
-* Omar Garduza 
+* [Omar Garduza] (https://github.com/OmarGard)
 * Paul O'Heal Flores
