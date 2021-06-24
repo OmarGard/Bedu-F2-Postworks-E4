@@ -16,9 +16,7 @@
 
   
   # 1. Cargamos los datos
-  data.soccer <- "https://www.football-data.co.uk/mmz4281/1920/SP1.csv"
-  download.file(url = data.soccer, destfile = "data.soccer.csv", mode = "wb")
-  data <-  read.csv("data.soccer.csv")
+  data <-  read.csv("https://www.football-data.co.uk/mmz4281/1920/SP1.csv")
   
   # 2.Extrae las columnas de goles en casa(FTHG) y visitante(FTAG)
   data <- data[ ,c(6:7)]
