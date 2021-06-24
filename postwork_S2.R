@@ -24,59 +24,44 @@
     #en el siguiente enlace: https://www.football-data.co.uk/spainm.php
     
     
-    data.soccer1D1718.df <- read.csv("https://www.football-data.co.uk/mmz4281/1718/SP1.csv")
-    data.soccer1D1819.df <- read.csv("https://www.football-data.co.uk/mmz4281/1819/SP1.csv")
-    data.soccer1D1920.df <- read.csv("https://www.football-data.co.uk/mmz4281/1920/SP1.csv")
-    
-    
-    #Revisa la estructura de de los data frames al usar las funciones: 
-    #  str, head, View y summary
-    
-    str(data.soccer1D1718.df)
-    str(data.soccer1D1819.df)
-    str(data.soccer1D1920.df)
-    
-    head(data.soccer1D1718.df)
-    head(data.soccer1D1819.df)
-    head(data.soccer1D1920.df)
-    
-    View(data.soccer1D1718.df)
-    View(data.soccer1D1819.df)
-    View(data.soccer1D1920.df)
-    
-    summary(data.soccer1D1718.df)
-    summary(data.soccer1D1819.df)
-    summary(data.soccer1D1920.df)
-    
-    #Con la función select del paquete dplyr selecciona únicamente las columnas 
-    #Date, HomeTeam, AwayTeam, FTHG, FTAG y FTR; 
-    #esto para cada uno de los data frames. (Hint: también puedes usar lapply).
-    
     library(dplyr)
     
-    #seleccionar las columnas Date, HomeTeam, AwayTeam, FTHG, FTAG y FTR
-    data.soccer1D1718.sltd <- select(data.soccer1D1718.df, Date, HomeTeam, AwayTeam, FTHG, FTAG, FTR)
-    data.soccer1D1819.sltd <- select(data.soccer1D1819.df, Date, HomeTeam, AwayTeam, FTHG, FTAG, FTR)
-    data.soccer1D1920.sltd <- select(data.soccer1D1920.df, Date, HomeTeam, AwayTeam, FTHG, FTAG, FTR)
+    # Agergar aqui el directorio de al macenamiento de los datos y luego correr el codigo
+    rootwd <- "C:/Users/GOMEZ/Documents/Bedu-S2-Postworks-E4"
     
-    #Asegúrate de que los elementos de las columnas correspondientes de los nuevos 
-    #data frames sean del mismo tipo (Hint 1: usa as.Date y mutate para arreglar las fechas). 
-    str(data.soccer1D1718.sltd)
-    str(data.soccer1D1819.sltd)
-    str(data.soccer1D1920.sltd)
+    setwd(paste0(rootwd,"/Data/postwork_2"))
     
-    data.soccer1D1718.sltd <- mutate(data.soccer1D1718.sltd, Date = as.Date(Date, "%d/%m/%y"))
-    data.soccer1D1819.sltd <- mutate(data.soccer1D1819.sltd, Date = as.Date(Date, "%d/%m/%y"))
-    data.soccer1D1920.sltd <- mutate(data.soccer1D1920.sltd, Date = as.Date(Date, "%d/%m/%y"))
+    # 1. Cargamos los datos
+    df.2017 <- "https://www.football-data.co.uk/mmz4281/1718/SP1.csv"
+    df.2018 <- "https://www.football-data.co.uk/mmz4281/1819/SP1.csv"
+    df.2019 <- "https://www.football-data.co.uk/mmz4281/1920/SP1.csv"
     
-    
-    #Con ayuda de la función rbind forma un único data frame que 
-    #contenga las seis columnas mencionadas en el punto 3
-    #(Hint 2: la función do.call podría ser utilizada).
+    download.file(url = df.2017, destfile = "df.2017.csv", mode = "wb")
+    download.file(url = df.2018, destfile = "df.2018.csv", mode = "wb")
+    download.file(url = df.2019, destfile = "df.2019.csv", mode = "wb")
     
     
-    data.full.soccer <- rbind(data.soccer1D1718.sltd, data.soccer1D1819.sltd, data.soccer1D1920.sltd)
-    data.full.soccer
+    # 2. Guardamos los archivos en una lista para facilirtar manipulacion y revisamos la estructura
+    files <- lapply(dir(), read.csv)
+    str(files)
+    head(files)
+    summary(files)
+    View(files)
+    
+    # 3. Seleccionamos columnas de interes
+    files <- lapply(files, select, Date, HomeTeam:FTR)
+    
+    # 4. Acomodamos fechas
+    files <- lapply(files, mutate, Date = as.Date(Date,"%d/%m/%y"))
+    files[2] 
+    
+    D1_17_18_19 <- do.call(rbind, files)
+    head(D1_17_18_19)
+    dim(D1_17_18_19)
+    
+    # Guardamos el archivo
+    write.csv(D1_17_18_19,"D1_17_18_19.csv")
+    
     
     
     
