@@ -11,4 +11,4 @@ Repositorio de los postworks de Bedu - DataScience-Fase2 del super equipazo 4
 * [Lizzeth Gómez Rodríguez](https://github.com/LIZZETHGOMEZ) 
 * [Oscar Echevezte](https://github.com/Oscar2401) 
 * [Omar Garduza](https://github.com/OmarGard)
-* [Paul O'Heal Flores] (https://github.com/POF77)
+* [Paul O'Heal Flores](https://github.com/POF77)
