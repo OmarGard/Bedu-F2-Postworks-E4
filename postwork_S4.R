@@ -34,13 +34,8 @@ contingency_table
 # Añadimos los márgenes para cada columna y fila
 contingency_table <- addmargins(contingency_table)
 contingency_table
-
 # Dividimos cada celda por el total de goles para obtener las probabilidades relativas
-for (i in 1:nrow(contingency_table)){
-  for(j in 1:ncol(contingency_table)){
-    contingency_table[i,j] <- contingency_table[i,j]/contingency_table["Sum","Sum"]
-  }
-}
+contingency_table <- contingency_table / contingency_table["Sum","Sum"]
 contingency_table
 
 #Generamos la tabla de cocientes
