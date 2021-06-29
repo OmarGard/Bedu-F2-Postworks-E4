@@ -81,6 +81,19 @@
   # Gráfica de la distruibución de las medias de las muestras bootstrap
   plot(myBootstrap, index = 2)
   
-  # TODO:
-  # - Refactorizar algunos nombres de variables si gustan
-  # - Colocar la última parte de los 1's de la tabla quotients'
+  # NOTA SOBRE INDEPENDENCIA DE LAS VARIABLES
+  # Cuando los eventos son mutuamente excluyentes (Independientes), 
+  # la probabilidad conjunta de A y B es igual a la probabilidad marginal de A multiplicada por la de B, 
+  # P(A y B) = P(A) * P(B).
+  
+  # Asi, en nuestra tabla de cocientes, tenemos la probabilidad conjunta dividida entre la
+  # probabilidad de las probas marginales. Por lo que un cociente de 1 implicaria que estamos
+  # dividiendo entre la probabilidad conjunta, es decir que los eventos son mutuamente excluyentes
+  
+  # Por lo tanto considerando nuevamente neustra tabla de cocientes.
+  quotients
+  
+  # Notemos que la matriz de goles de 0 a son los que estan mas cercanos a 1
+  # Esto lo podemos deber a que las probabilidades de meter menos goles es mayor,
+  # mientras que un partido con mas de 3 goles tiene menos porbabilidad de ocurrencia.
+  
