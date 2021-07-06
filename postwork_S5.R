@@ -72,5 +72,6 @@
                         teams = equipos,
                         min.date = fecha[1], 
                         max.date = fecha[n-1])
-  # Estimacion de probabilidades
+  
+  # 4. Estimacion de probabilidades
   predict(ranking, date = fecha[n])
