@@ -8,6 +8,7 @@ Repositorio de los postworks de Bedu - DataScience-Fase2 del super equipazo 4
 4. [postwork_S4](https://github.com/OmarGard/Bedu-F2-Postworks-E4/blob/main/postwork_S4.R): Función bootstrap
 5. [postwork_S5](https://github.com/OmarGard/Bedu-F2-Postworks-E4/blob/main/postwork_S5.R): Estimaciones de probabilidad
 6. [postwork_S6](https://github.com/OmarGard/Bedu-F2-Postworks-E4/blob/main/postwork_S6.R): Time Series
+7. [postwork_S7](https://github.com/OmarGard/Bedu-F2-Postworks-E4/blob/main/postwork_S7.R): Alojar un fichero a un local host de MongoDB
 
 
 ### Integrantes: 
