@@ -21,11 +21,9 @@
   library(dplyr)
   library(boot)
   
-  getwd()
-  setwd("~/Bedu-S2-Postworks-E4")
   
   # Importamos el dataframe almacenado como csv del postwork 2
-  data <- read.csv("./data/postwork_2/D1_17_18_19.csv")
+  data <- read.csv("https://raw.githubusercontent.com/OmarGard/Bedu-F2-Postworks-E4/main/data/postwork_2/D1_17_18_19.csv")
   
   # Verificamos su estructura
   head(data)
@@ -59,10 +57,8 @@
   df <- filter(df, FTHG != "Sum" & FTAG != "Sum")
   df
   
-  # Obtenemos una muestra inicial de la cuál se hará el bootstrapping
-  sample <- df[sample(nrow(df),8),]
-  sample
-  
+  sample <- df
+ 
   # Funcion para calcular los estadísticos del bootstrapping
   foo <- function(data, indices)
   {
@@ -72,12 +68,12 @@
   
   # Generamos 1000 muestras de bootstrap a partir de la muestra sample
   set.seed(12345)
-  myBootstrap <- boot(sample, foo, R = 1000)
+  myBootstrap <- boot(sample, foo, R = 1000, )
   myBootstrap
   
   # Valores estadísticos calculados de cada muestra bootstrap
   head(myBootstrap$t)
-  
+  summary(myBootstrap)
   # Gráfica de la distruibución de las medias de las muestras bootstrap
   plot(myBootstrap, index = 2)
   
@@ -95,5 +91,5 @@
   
   # Notemos que la matriz de goles de 0 a son los que estan mas cercanos a 1
   # Esto lo podemos deber a que las probabilidades de meter menos goles es mayor,
-  # mientras que un partido con mas de 3 goles tiene menos porbabilidad de ocurrencia.
+  # mientras que un partido con mas de 3 goles tiene menos probabilidad de ocurrencia.
   
