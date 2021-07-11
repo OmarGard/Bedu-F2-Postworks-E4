@@ -29,9 +29,9 @@
     # Agregar aqui el directorio de almacenamiento de los datos y luego correr el codigo
     # Nota: si deescargo el repositorio completo, elimine los archivos de la carpeta
     # data/postwork_2, los cuales se almacenaran una vez se corra el codigo. 
-    rootwd <- "C:/Users/GOMEZ/Documents/Bedu-S2-Postworks-E4"
+    rootwd <- "E:/ecardoz/Bedu-F2-Postworks-E4"
     
-    setwd(paste0(rootwd,"/data/postwork_2"))
+    setwd(paste0(rootwd,"/output_data/postwork_2"))
     
     # 1. Cargamos los datos
     df.2017 <- "https://raw.githubusercontent.com/OmarGard/Bedu-F2-Postworks-E4/main/source_data/postwork_2/SP1-1718.csv"
