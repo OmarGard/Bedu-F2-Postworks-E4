@@ -46,7 +46,7 @@
   prop.table(freq_away) #Mismo resultado
   
   
-  # Tabla de probailidades de goles en casa y visitante
+  # Tabla de probabilidades de goles en casa y visitante
   proba_away <- as.data.frame(proba_away)
   proba_home <- as.data.frame(proba_home)
   
