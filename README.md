@@ -2,13 +2,13 @@
 Repositorio de los postworks de Bedu - DataScience-Fase2 del super equipazo 4
 
 ## Contenido
-1. [postwork_S1](https://github.com/OmarGard/Bedu-S2-Postworks-E4/blob/main/postwork_S1.R): Tabla de frecuencias y probabilidades marginales
-2. [postwork_S2](https://github.com/OmarGard/Bedu-S2-Postworks-E4/blob/main/postwork_S2.R): Cargado de datos desde la web y uso de la función `lapply`
-3. [postwork_S3](https://github.com/OmarGard/Bedu-S2-Postworks-E4/blob/main/postwork_S3.R): Frecuencias relativas y gráficas
-4. [postwork_S4](https://github.com/OmarGard/Bedu-F2-Postworks-E4/blob/main/postwork_S4.R): Función bootstrap
-5. [postwork_S5](https://github.com/OmarGard/Bedu-F2-Postworks-E4/blob/main/postwork_S5.R): Estimaciones de probabilidad
-6. [postwork_S6](https://github.com/OmarGard/Bedu-F2-Postworks-E4/blob/main/postwork_S6.R): Time Series
-7. [postwork_S7](https://github.com/OmarGard/Bedu-F2-Postworks-E4/blob/main/postwork_S7.R): Alojar un fichero a un local host de MongoDB
+1. [Postwork_S1](https://github.com/OmarGard/Bedu-F2-Postworks-E4/blob/main/Postwork1): Tabla de frecuencias y probabilidades marginales
+2. [Postwork_S2](https://github.com/OmarGard/Bedu-S2-Postworks-E4/blob/main/Postwork2): Cargado de datos desde la web y uso de la función `lapply`
+3. [Postwork_S3](https://github.com/OmarGard/Bedu-S2-Postworks-E4/blob/main/Postwork3): Frecuencias relativas y gráficas
+4. [Postwork_S4](https://github.com/OmarGard/Bedu-F2-Postworks-E4/blob/main/Postwork4): Función bootstrap
+5. [Postwork_S5](https://github.com/OmarGard/Bedu-F2-Postworks-E4/blob/main/Postwork5): Estimaciones de probabilidad
+6. [Postwork_S6](https://github.com/OmarGard/Bedu-F2-Postworks-E4/blob/main/Postwork6): Time Series
+7. [Postwork_S7](https://github.com/OmarGard/Bedu-F2-Postworks-E4/blob/main/Postwork7): Alojar un fichero a un local host de MongoDB
 
 
 ### Integrantes: 
