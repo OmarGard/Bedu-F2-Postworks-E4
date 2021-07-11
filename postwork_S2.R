@@ -34,9 +34,9 @@
     setwd(paste0(rootwd,"/data/postwork_2"))
     
     # 1. Cargamos los datos
-    df.2017 <- "https://www.football-data.co.uk/mmz4281/1718/SP1.csv"
-    df.2018 <- "https://www.football-data.co.uk/mmz4281/1819/SP1.csv"
-    df.2019 <- "https://www.football-data.co.uk/mmz4281/1920/SP1.csv"
+    df.2017 <- "https://raw.githubusercontent.com/OmarGard/Bedu-F2-Postworks-E4/main/source_data/postwork_2/SP1-1718.csv"
+    df.2018 <- "https://raw.githubusercontent.com/OmarGard/Bedu-F2-Postworks-E4/main/source_data/postwork_2/SP1-1819.csv"
+    df.2019 <- "https://raw.githubusercontent.com/OmarGard/Bedu-F2-Postworks-E4/main/source_data/postwork_2/SP1-1920.csv"
     
     download.file(url = df.2017, destfile = "df.2017.csv", mode = "wb")
     download.file(url = df.2018, destfile = "df.2018.csv", mode = "wb")
