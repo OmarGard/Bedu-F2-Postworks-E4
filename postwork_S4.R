@@ -24,7 +24,7 @@
   
   
   # Importamos el dataframe almacenado como csv del postwork 2
-  data <- read.csv("https://raw.githubusercontent.com/OmarGard/Bedu-F2-Postworks-E4/main/data/postwork_2/D1_17_18_19.csv")
+  data <- read.csv("https://raw.githubusercontent.com/OmarGard/Bedu-F2-Postworks-E4/main/output_data/postwork_2/D1_17_18_19.csv")
   
   # Verificamos su estructura
   head(data)
