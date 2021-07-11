@@ -30,8 +30,11 @@
 
   library(dplyr)
   library(ggplot2)
+  
+  #inserte cual es su directorio raiz
+  rootdir <- "E:/ecardoz/Bedu-F2-Postworks-E4/"
   # Cargamos los datos
-  df <- read.csv("https://raw.githubusercontent.com/OmarGard/Bedu-F2-Postworks-E4/main/data/postwork_2/D1_17_18_19.csv")
+  df <- read.csv("https://raw.githubusercontent.com/OmarGard/Bedu-F2-Postworks-E4/main/output_data/postwork_2/D1_17_18_19.csv")
   head(df)
   # X       Date   HomeTeam   AwayTeam FTHG FTAG FTR
   # 1 1 2017-08-18    Leganes     Alaves    1    0   H
@@ -75,14 +78,14 @@
   # 5 2017-08-19    Sevilla    Espanol          1          1
   # 6 2017-08-20 Ath Bilbao     Getafe          0          0
   getwd()
-  setwd("/Users/omargard/Documents/Personal/Bedu/Fase2/S5/Postwork/Data")
+  setwd(roodir)
   
   # Guardamos los datos
-  write.csv(SmallData, file = "soccer.csv", row.names = FALSE)
+  write.csv(SmallData, file = "output_data/postwork_4/soccer.csv", row.names = FALSE)
   
   # 2. Leemos los datos con ayuda de fbRanks
   library(fbRanks)
-  listasoccer<- create.fbRanks.dataframes(scores.file = "soccer.csv", date.format = "%Y-%m-%d")
+  listasoccer<- create.fbRanks.dataframes(scores.file = "output_data/postwork_4/soccer.csv", date.format = "%Y-%m-%d")
   
   anotaciones <- listasoccer$scores
   equipos <- listasoccer$teams 
