@@ -81,11 +81,11 @@
   setwd(roodir)
   
   # Guardamos los datos
-  write.csv(SmallData, file = "output_data/postwork_4/soccer.csv", row.names = FALSE)
+  write.csv(SmallData, file = "output_data/postwork_5/soccer.csv", row.names = FALSE)
   
   # 2. Leemos los datos con ayuda de fbRanks
   library(fbRanks)
-  listasoccer<- create.fbRanks.dataframes(scores.file = "output_data/postwork_4/soccer.csv", date.format = "%Y-%m-%d")
+  listasoccer<- create.fbRanks.dataframes(scores.file = "output_data/postwork_5/soccer.csv", date.format = "%Y-%m-%d")
   
   anotaciones <- listasoccer$scores
   equipos <- listasoccer$teams 
