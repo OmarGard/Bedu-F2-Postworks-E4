@@ -199,9 +199,8 @@
 
   # Tomando como recordatorio el teorema del límite central, sabemos que dada una muestra
   # de tamaño n > 30, la distribución de las medias muestrales tiende a ser una distribución normal. 
-  # Y para que las medias presenten una distribución normal, recordemos que la media debe de ser igual a 1.
-  # Podemos hacer una prueba de hipótesis para probar esta teoría, ya que como podemos ver, 
-  # la media se encuentra por debajo del 0
+  # Así que podemos realizar una prueba de hipótesis para probar la independencia de las variables
+  # ya que para que X y Y sean independientes, la media debe de ser igual 1
   
   # Podemos darnos una mejor idea de que es posible de que vengan de una distribución normal si observamos
   # la gráfica de cuantiles normales de las medias
@@ -215,19 +214,25 @@
             xlab = "Medias", ylab="Densidad")
  
   # Llevaremos a cabo una prueba de Shapiro Test para probar lo siguiente
-  # H0:μ=0
-  # H1:μ≠0
+  # H0:μ=1
+  # H1:μ≠1
   
-  shapiro.test(myBootstrap$t[,2])
-  # Shapiro-Wilk normality test
+  t.test(x=myBootstrap$t[,2], mu = 1,alternative = "two.sided")
+    
+  # One Sample t-test
   # 
   # data:  myBootstrap$t[, 2]
-  # W = 0.99494, p-value = 0.002023
+  # t = -38.173, df = 999, p-value < 2.2e-16
+  # alternative hypothesis: true mean is not equal to 1
+  # 95 percent confidence interval:
+  #   0.8512693 0.8658131
+  # sample estimates:
+  #   mean of x 
+  # 0.8585412 
   
-  # Como podemos ver, la prueba de Shapiro nos dió un p-value que es menor a 0.05, lo cuál quiere decir
-  # que podemos rechazar la hipótesis nula de que nuestras medias vienen de una distribución normal
-  
-  
+  # Podemos darnos cuenta que la prueba nos arroja un p-value muy pequeño, esto
+  # nos da suficiente razón para declarar que las variables X y Y no son independientes
+ 
   
   
   
