@@ -231,7 +231,8 @@
   # 0.8585412 
   
   # Podemos darnos cuenta que la prueba nos arroja un p-value muy pequeño, esto
-  # nos da suficiente razón para declarar que las variables X y Y no son independientes
+  # nos da suficiente razón para rechazar la hipótesis nula de que la media es igual a 1
+  # y declarar que las variables X y Y no son independientes
  
   
   
