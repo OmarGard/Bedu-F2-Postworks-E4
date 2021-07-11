@@ -75,7 +75,7 @@ Probabilidad conjunta
   names(dimnames(freq_conjunta)) <- c("Home", "Away") 
   prop.table(freq_conjunta)
 ```
-  
+![Tabla de probabilidades conjuntas](https://github.com/OmarGard/Bedu-F2-Postworks-E4/blob/main/img/tabla_S1.png)
 
 
 
