@@ -206,6 +206,8 @@ Lo siguiente será tratar de encontrar la proporción de goles anotados en compa
       scale_x_discrete(limits = c(0:8)) +
       ggtitle("Número de goles por partido (PDE Temporadas 2017-2019)")
 ```
+![num_goles_partido](https://user-images.githubusercontent.com/60225087/125345717-7ec07c00-e31e-11eb-815d-c738ec0f4292.png)
+
 10. Análisis Leganes - Sevilla: Ahora analizaremos uno de los partidos predecidos por nuestro modelo, el cuál es:
 - 2020-12-23 Leganes vs Sevilla, HW 22%, AW 50%, T 27%, pred score 0.8-1.4  actual: T (1-1)
   
@@ -297,6 +299,8 @@ Podemos ver que incluso separando los valores por equipos específicos y de dife
     ggtitle("Número de goles por partido (PDE Temporadas 2017-2019)") +
     facet_grid(div ~ .)
   ```
+![num_goles_part2](https://user-images.githubusercontent.com/60225087/125345852-a9123980-e31e-11eb-98a3-401e25b18c87.png)
+
 10.6 Convettimos el ranking de los equipos a un dataframe para poder obtener algunos datos de él
 ```r
   ranks.df <- print.fbRanks(ranking)
