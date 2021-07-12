@@ -121,14 +121,26 @@
   quotionents.df <- filter(quotionents.df, FTHG != "Sum" & FTAG != "Sum")
   
   # Establecemos la muestra de la cuál obtendremos las muestras bootstrap que es la tabla de los cocientes
-  sample <- quotionents.df
+  sample <-data[,c("FTHG","FTAG")]
  
   # Funcion para calcular los estadísticos del bootstrapping, que en este caso 
   # serán la media y mediana
   funcion.estadistico <- function(data, indices)
   {
     dt <- data[indices,]
-    c(median(dt[,3]),mean(dt[,3]))
+    c_t <- table(dt)
+    c_t <- addmargins(c_t)
+    c_t <- c_t / c_t["Sum","Sum"]
+    q_ <- c_t
+    for (i in 1:(nrow(c_t)-1)){
+      for(j in 1:(ncol(c_t)-1)){
+        q_[i,j] <- c_t[i,j]/(c_t[i,"Sum"] * c_t["Sum",j])
+      }
+    }
+    q_.df <- data.frame(q_)
+    q_.df <- filter(q_.df, FTHG != "Sum" & FTAG != "Sum")
+    
+    c(median(q_.df[,3]),mean(q_.df[,3]))
   }
   
   # Generamos 1000 muestras de bootstrap a partir de la muestra sample
@@ -143,34 +155,26 @@
   # 
   # 
   # Bootstrap Statistics :
-  #   original        bias    std. error
-  # t1* 0.8814433 -0.0546764108   0.1857210
-  # t2* 0.8595706  0.0004432385   0.1254416
+  #   original      bias    std. error
+  # t1* 0.8814433 -0.05292374  0.08066186
+  # t2* 0.8595706  0.03382926  0.07035373
   
   
   # Valores estadísticos calculados de cada muestra bootstrap
   # La primera columna corresponde a la mediana y la segunda a la media
   head(myBootstrap$t)
-  #         [,1]      [,2]
-  # [1,] 0.7862903 0.6632502
-  # [2,] 0.9351621 0.9302817
-  # [3,] 0.9243724 0.7903672
-  # [4,] 0.8013121 0.8471797
-  # [5,] 0.9850885 0.8857456
-  # [6,] 0.6818182 0.8054212
+  #       [,1]      [,2]
+  # [1,] 0.6453804 0.8205002
+  # [2,] 0.9528055 0.9464532
+  # [3,] 0.7947166 0.8607623
+  # [4,] 0.7416081 0.8320753
+  # [5,] 0.9243843 0.9104668
+  # [6,] 0.9047260 0.8759573
   summary(myBootstrap)
-  # Length Class      Mode     
-  # t0           2   -none-     numeric  
-  # t         2000   -none-     numeric  
-  # R            1   -none-     numeric  
-  # data         3   data.frame list     
-  # seed       626   -none-     numeric  
-  # statistic    1   -none-     function 
-  # sim          1   -none-     character
-  # call         4   -none-     call     
-  # stype        1   -none-     character
-  # strata      63   -none-     numeric  
-  # weights     63   -none-     numeric  
+  # Number of bootstrap replications R = 1000 
+  # original  bootBias   bootSE bootMed
+  # 1  0.88144 -0.052924 0.080662 0.83958
+  # 2  0.85957  0.033829 0.070354 0.88652
   
   # NOTA SOBRE INDEPENDENCIA DE LAS VARIABLES
   # Cuando los eventos son mutuamente excluyentes (Independientes), 
@@ -234,6 +238,4 @@
   # nos da suficiente razón para rechazar la hipótesis nula de que la media es igual a 1
   # y declarar que las variables X y Y no son independientes
  
-  
-  
   
