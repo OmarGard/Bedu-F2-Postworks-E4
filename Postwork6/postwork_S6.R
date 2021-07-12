@@ -58,13 +58,14 @@ serie %>%
 # Podemos analizar el correlograma de la serie y el parcial de la serie, y podemos notar
 # que no es tan sencillo determinar los efectos de valores anteriores en los valores futuros
 # de la serie de tiempo
+
 acf(serie, lag.max = 50)
 pacf(serie, lag.max = 50)
 
 # Vamos a realizar una prueba de hipótesis para determinar si nuestra prueba es estacionaria
 # para poder ver si podemos aplicar algún modelo de autoregresión sobre ella, 
 # para ello tomaremos como hipótesis nula que nuestra serie contiene alguna raíz unitaria: 
-# H0: φ = 1 -> Presenta una tendencia estocástico y no es una serie estacionaria
+# H0: φ = 1 -> Presenta una tendencia estocástica y no es una serie estacionaria
 # H1: φ < 1 -> No presenta tendencia estocástica y es estacionaria
 
 # Y probaremos dicha hipótesis con una prueba de Dicky-Fuller Aumentada con el comando 
@@ -129,7 +130,7 @@ summary(y2)
 # = B_1 + (e_t - e_(t-1))
 # 
 # Ahora si observamos la esperanza de la nueva serie, podemos notar que 
-# E(Z_t) = B_1 ya que B_1 es una constante así que nos e ve afectada, y (e_t - e_(t-1)) son errores que 
+# E(Z_t) = B_1 ya que B_1 es una constante así que no se ve afectada, y (e_t - e_(t-1)) son errores que 
 #            se asumen vienen de una distribución de ruido blanco o normal N(0,..)    
 #            
 # Y si observamos la varianza, podemos notar que 
@@ -155,7 +156,7 @@ serie.diff <- diff(serie)
 # Ploteamos la nueva serie para ver los resultados
 serie.diff %>%
     autoplot(ts.colour = "#0D3B66") +
-    ggtitle("Promedio de la suma mensual total de goless") +
+    ggtitle("Promedio de la suma mensual total de goles (Serie diferenciada)") +
     xlab("Año") + ylab("Promedio de goles") +
     theme_test() +
     geom_hline(aes(yintercept = mean(serie.diff), color="media")) +
