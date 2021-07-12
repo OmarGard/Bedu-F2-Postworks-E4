@@ -1,4 +1,4 @@
-﻿# Postwork Sesión 4
+# Postwork Sesión 4
  
 #### Objetivo
 Ahora investigarás la dependencia o independencia del número de goles anotados por el equipo de casa y el número de goles anotados por el equipo visitante mediante un procedimiento denominado bootstrap.
