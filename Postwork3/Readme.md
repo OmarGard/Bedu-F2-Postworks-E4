@@ -107,7 +107,8 @@ Importamos el dataframe almacenado como csv del postwork 2
           names.arg=rownames(contingency_table[-10,]),
           col="#70D1E0")
   ```
-  
+  ![proba_num_goles_equipo_casa](https://user-images.githubusercontent.com/60225087/125330471-7101fb00-e30c-11eb-9281-331ce84ec0cb.png)
+
   Creación de gráfico de goles anotados en casa
   ```r
   barplot(contingency_table["Sum",-8],
