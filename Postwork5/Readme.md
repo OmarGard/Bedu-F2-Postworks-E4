@@ -9,6 +9,7 @@
   
 4. Finalmente estima las probabilidades de los eventos, el equipo de casa gana, el equipo visitante gana o el resultado es un empate para los partidos que se jugaron en la última fecha del vector de fechas fecha. Esto lo puedes hacer con ayuda de la función predict y usando como argumentos ranking y fecha[n] que deberá especificar en date.
 
+#### Desarrollo
 1. Cargamos librerías
 ```r
   library(dplyr)
