@@ -91,9 +91,9 @@ Vamos a realizar una prueba de hipótesis para determinar si nuestra prueba es e
  para poder ver si podemos aplicar algún modelo de autoregresión sobre ella, 
  para ello tomaremos como hipótesis nula que nuestra serie contiene alguna raíz unitaria:
  
- ![\Large \Eta_0: \varphi = 1](https://latex.codecogs.com/svg.latex?\Large&space;\Eta_0:\varphi=1)
+ ![\Large \Eta_0:\varphi = 1](https://latex.codecogs.com/svg.latex?\Large&space;H_0:\varphi=1)
  
- ![\Large  \Eta_1: \varphi < 1](https://latex.codecogs.com/svg.latex?\Large&space; \Eta_1:\varphi<1)
+ ![\Large  \Eta_1: \varphi < 1](https://latex.codecogs.com/svg.latex?\Large&space;H_0:\varphi<1)
  
  
  >Nota: La hipótesis nula significa que nuestra serie presenta una tendencia estocástica y no es una serie estacionaria y la alternativa es que no presenta tendencia estocástica y es estacionaria ya que la raíz unitaria es menor a 1 
