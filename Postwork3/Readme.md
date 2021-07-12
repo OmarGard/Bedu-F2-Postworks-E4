@@ -118,7 +118,8 @@ Importamos el dataframe almacenado como csv del postwork 2
           names.arg=colnames(contingency_table[,-8]),
           col="#9835A4")
   ```
-  
+  ![porba_num_goles_equipo_visita](https://user-images.githubusercontent.com/60225087/125330711-b4f50000-e30c-11eb-8269-0a39e3840bf6.png)
+
   Convertimos la tabla a dataframe para poder generar el heatmap de probabilidades conjuntas
   ```r
   df <- data.frame(contingency_table)
