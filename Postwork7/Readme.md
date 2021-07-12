@@ -1,4 +1,4 @@
-# PostWork Sesión 6
+# PostWork Sesión 7
 
 #### OBJETIVO
 Realizar el alojamiento de un fichero .csv a una base de datos (BDD), en un local host de Mongodb a través de R.
