@@ -206,7 +206,9 @@ Asi, en nuestra tabla de cocientes, tenemos la probabilidad conjunta dividida en
     xlab("Medias") +
     ylab("Frecuencias") +
     ggtitle("Histograma de distribución de medias Bootstrap") 
-```  
+```
+![distribucion_medias_bootstrap](https://user-images.githubusercontent.com/60225087/125336231-233cc100-e313-11eb-927f-f77547349c08.png)
+
 Tomando como recordatorio el teorema del límite central, sabemos que dada una muestra de tamaño n > 30, la distribución de las medias muestrales tiende a ser una distribución normal. Así que podemos realizar una prueba de hipótesis para probar la independencia de las variables ya que para que X y Y sean independientes, la media debe de ser igual 1.
   
 Podemos darnos una mejor idea de que es posible de que vengan de una distribución normal si observamos la gráfica de cuantiles normales de las medias.
@@ -214,12 +216,16 @@ Podemos darnos una mejor idea de que es posible de que vengan de una distribuci�
   qqnorm(myBootstrap$t[,2])
   qqline(myBootstrap$t[,2])
 ```
+![Normal_q-q_plot](https://user-images.githubusercontent.com/60225087/125336433-5f702180-e313-11eb-9379-7511eb0a1d00.png)
+
 15. De igual manera, podemos observar la gráfica de densidad para observar la curva de campana de nuestros datos.
 ```r
   ggdensity(myBootstrap$t[,2], 
             main = "Densidad de las medias muestrales Bootstrap",
             xlab = "Medias", ylab="Densidad")
  ```
+![densidad_medias_muestrales](https://user-images.githubusercontent.com/60225087/125336451-672fc600-e313-11eb-8b47-54b0c6f41fa9.png)
+
 Llevaremos a cabo una prueba de Shapiro Test para probar lo siguiente
 - H0:μ=1
 - H1:μ≠1
