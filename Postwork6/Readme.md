@@ -90,9 +90,12 @@ pacf(serie, lag.max = 50)
 Vamos a realizar una prueba de hipótesis para determinar si nuestra prueba es estacionaria
  para poder ver si podemos aplicar algún modelo de autoregresión sobre ella, 
  para ello tomaremos como hipótesis nula que nuestra serie contiene alguna raíz unitaria:
- $$
- \Eta_0: \varphi = 1 \\ \Eta_1: \varphi < 1 
- $$
+ 
+ ![\Large \Eta_0: \varphi = 1](https://latex.codecogs.com/svg.latex?\Large&space;\Eta_0:\varphi=1)
+ 
+ ![\Large  \Eta_1: \varphi < 1](https://latex.codecogs.com/svg.latex?\Large&space; \Eta_1:\varphi<1)
+ 
+ 
  >Nota: La hipótesis nula significa que nuestra serie presenta una tendencia estocástica y no es una serie estacionaria y la alternativa es que no presenta tendencia estocástica y es estacionaria ya que la raíz unitaria es menor a 1 
 
 Y probaremos dicha hipótesis con una prueba de Dicky-Fuller Aumentada con el comando __ur.df__ que viene de Unit Root Dickey - Fuller por su nombre en inglés
@@ -151,6 +154,7 @@ Donde:
 Definimos:
 
 ![\Large z_t = y_t - y_{t-1}](https://latex.codecogs.com/svg.latex?\Large&space;z_t=y_t-y_{t-1})
+
 ![\Large \text{ Calculamos la diferencia entre un valor y su consecutivo para } y_t ](https://latex.codecogs.com/svg.latex?\Large&space;\text{&space;Calculamos&space;la&space;diferencia&space;entre&space;un&space;valor&space;y&space;su&space;consecutivo&space;para&space;}y_t)
 
 
