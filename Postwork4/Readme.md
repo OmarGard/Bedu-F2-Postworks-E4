@@ -190,4 +190,50 @@ Ahora investigarás la dependencia o independencia del número de goles anotados
 NOTA SOBRE INDEPENDENCIA DE LAS VARIABLES
 Cuando los eventos son mutuamente excluyentes (Independientes), la probabilidad conjunta de A y B es igual a la probabilidad marginal de A multiplicada por la de B, P(A y B) = P(A) * P(B).
   
-Asi, en nuestra tabla de cocientes, tenemos la probabilidad conjunta dividida entre la probabilidad de las probas marginales. Por lo que un cociente de 1 implicaria que estamos dividiendo entre la probabilidad conjunta, es decir que los eventos son mutuamente excluyentes
+Asi, en nuestra tabla de cocientes, tenemos la probabilidad conjunta dividida entre la probabilidad de las probas marginales. Por lo que un cociente de 1 implicaria que estamos dividiendo entre la probabilidad conjunta, es decir que los eventos son mutuamente excluyentes.
+
+14. Graficamos la distribución de las medias de las muestras bootstrap
+```r
+  ggplot() +
+    geom_histogram(aes(myBootstrap$t[,2]),binwidth=0.01, fill="#69b3a2", color="#e9ecef") +
+    geom_vline(aes(xintercept=mean(myBootstrap$t[,2]),
+                   color="media"), linetype="dashed",
+               size=1) + 
+    geom_vline(aes(xintercept=median(myBootstrap$t[,2]),
+                   color="mediana"), linetype="dashed",
+               size=1) + 
+    scale_color_manual(name = "Estadísticos", values = c(mediana = "#114B5F", media = "#F45B69")) +
+    xlab("Medias") +
+    ylab("Frecuencias") +
+    ggtitle("Histograma de distribución de medias Bootstrap") 
+```  
+Tomando como recordatorio el teorema del límite central, sabemos que dada una muestra de tamaño n > 30, la distribución de las medias muestrales tiende a ser una distribución normal. Así que podemos realizar una prueba de hipótesis para probar la independencia de las variables ya que para que X y Y sean independientes, la media debe de ser igual 1.
+  
+Podemos darnos una mejor idea de que es posible de que vengan de una distribución normal si observamos la gráfica de cuantiles normales de las medias.
+```r
+  qqnorm(myBootstrap$t[,2])
+  qqline(myBootstrap$t[,2])
+```
+15. De igual manera, podemos observar la gráfica de densidad para observar la curva de campana de nuestros datos.
+```r
+  ggdensity(myBootstrap$t[,2], 
+            main = "Densidad de las medias muestrales Bootstrap",
+            xlab = "Medias", ylab="Densidad")
+ ```
+Llevaremos a cabo una prueba de Shapiro Test para probar lo siguiente
+- H0:μ=1
+- H1:μ≠1
+```r
+  t.test(x=myBootstrap$t[,2], mu = 1,alternative = "two.sided")
+  # One Sample t-test
+  # 
+  # data:  myBootstrap$t[, 2]
+  # t = -38.173, df = 999, p-value < 2.2e-16
+  # alternative hypothesis: true mean is not equal to 1
+  # 95 percent confidence interval:
+  #   0.8512693 0.8658131
+  # sample estimates:
+  #   mean of x 
+  # 0.8585412 
+```
+Podemos darnos cuenta que la prueba nos arroja un p-value muy pequeño, esto nos da suficiente razón para rechazar la hipótesis nula de que la media es igual a 1 y declarar que las variables X y Y no son independientes.
