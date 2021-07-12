@@ -147,3 +147,4 @@ Importamos el dataframe almacenado como csv del postwork 2
     theme_ipsum()
   ggplotly(heatmap, tooltip="text")
   ```
+![proba_conjuntas](https://user-images.githubusercontent.com/60225087/125331402-917e8500-e30d-11eb-9c64-c3ca45ed84be.png)
