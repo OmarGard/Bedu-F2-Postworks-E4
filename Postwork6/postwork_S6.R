@@ -208,7 +208,7 @@ tsdiag(modelo_1)
 Box.test(residuals(modelo_1), type ="Ljung-Box")
 
 # Observamos el comportamiento de los residuos
-plot(residuals(modelo_1))
+plot(residuals(modelo_1), main = "Gráfico de los residuales", xlab = "Año", ylab ="")
 
 # Hacemos el pronostico para los proximos 12 meses
 pronostico <- forecast(modelo_1, 12)
@@ -223,7 +223,7 @@ plot(pronostico, main = "Pronóstico del promedio de goles para el próximo año
 # Con ggplot
 pronostico %>%
     autoplot(ts.colour = "#0D3B66") +
-    ggtitle("Promedio de la suma mensual total de goles") +
+    ggtitle("Promedio de la suma mensual total de goles (pronóstico)") +
     xlab("Año") + ylab("Promedio de goles") +
     theme_test() +
     geom_hline(aes(yintercept = mean(serie), color="media")) +
