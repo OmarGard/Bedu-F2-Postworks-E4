@@ -74,6 +74,7 @@ pacf(serie, lag.max = 50)
 library(urca)
 y2 <- ur.df(serie,type="none", selectlags="AIC")
 summary(y2)  
+y2
 # ############################################### 
 # # Augmented Dickey-Fuller Test Unit Root Test # 
 # ############################################### 
@@ -179,3 +180,54 @@ summary(y3)
 # Ahora podemos notar que el valor del estadístico de prueba es -13.8505, y es muchísimo menor que 
 # cualquier valor de significancia del 99%,95% y 90%
 # Por lo tanto tenemos una serie estacionaria a la cuál le podemos aplicar algún modelo de autoregresión
+
+
+
+# ===========================================================
+# Moelo Autorregresio de Medias moviles (ARMA)
+# ===========================================================
+# Trabajar con series de tiempo nos permite ampliar el análisis de los datos
+# para realizar predicciones futuras utilizando la infomación disponible del pasado.
+
+# Una vez que nuestro modelo es estacionario con una diferencia, procederesmo a aplicarle un 
+# modelo ARIMA(5,1,2)
+# Lo anterior debido a los resultados arrojados por los correlogramas acf y pacf,
+
+# Aplicamos el modelo con 5 auto regresivos, una diferencia y dos medias movil
+modelo_1 <- arima(serie, order = c(5,1,2))
+
+# Observamos el diagnostico del modelo
+# En donde se observa que los errores estandarizados tienen un comportamiento de ruido blanco
+# Mientras que los valores p del estadistico Ljung-Box se encuentran por encima de 0.05
+tsdiag(modelo_1)
+
+# Aplicamos el test de Ljung-Box para comprobar si hay ruido blanco
+# donde: 
+# Ho = Hay presencia de ruido blanco
+# Ha = No hay presencia de ruido blanco
+Box.test(residuals(modelo_1), type ="Ljung-Box")
+
+# Observamos el comportamiento de los residuos
+plot(residuals(modelo_1))
+
+# Hacemos el pronostico para los proximos 12 meses
+pronostico <- forecast(modelo_1, 12)
+
+# Veamos que ademas de tener el forecast, tambien podemos observar el limite superior e inferior a un 
+# 80 y 95% de confianza
+
+# Graficamos el forecast
+plot(pronostico, main = "Pronóstico del promedio de goles para el próximo año",
+     xlab = "años", ylab = "Promedio de goles")
+
+# Con ggplot
+pronostico %>%
+    autoplot(ts.colour = "#0D3B66") +
+    ggtitle("Promedio de la suma mensual total de goles") +
+    xlab("Año") + ylab("Promedio de goles") +
+    theme_test() +
+    geom_hline(aes(yintercept = mean(serie), color="media")) +
+    scale_color_manual(name = "Estadísticos", values = c(media = "#EE964B"))
+
+
+
