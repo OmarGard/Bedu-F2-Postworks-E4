@@ -226,3 +226,85 @@ summary(y3)
 ```
 Ahora podemos notar que el valor del estadístico de prueba es -13.8505, y es muchísimo menor que cualquier valor de significancia del 99%,95% y 90%. Por lo tanto tenemos una serie estacionaria a la cuál le podemos aplicar algún modelo de autoregresión.
 
+
+
+
+#### FORECAST (MODELO ARIMA)
+
+Trabajar con series de tiempo nos permite ampliar el análisis de los datos para realizar predicciones futuras utilizando la infomación disponible del pasado. \
+Una vez que nuetra serie es estacionaria y dado que se le aplicó una diferencia, se encuentra apta para emplear un **modelo ARIMA(5,1,2)** \
+Los parametros son acorde a los resultados arrojados por los correlogramas acf y pacf de la serie con una diferencia.
+
+Aplicamos el modelo con 5 auto regresivos, una diferencia y dos medias móvil
+```r
+modelo_1 <- arima(serie, order = c(5,1,2))
+```
+
+Observamos el diagnóstico del modelo utilizando tsdiag() \
+En donde se observa que los errores estandarizados tienen un comportamiento de ruido blanco, mientras que los valores p del estadístico Ljung-Box \
+se encuentran por encima de 0.05
+```r
+tsdiag(modelo_1)
+```
+![diagnostico_arima](https://raw.githubusercontent.com/OmarGard/Bedu-F2-Postworks-E4/main/img/diagnostico_arima.png)
+
+Aplicamos el test de Ljung-Box para comprobar si hay ruido blanco, donde: \
+Ho = Hay presencia de ruido blanco \
+Ha = No hay presencia de ruido blanco
+```r
+Box.test(residuals(modelo_1), type ="Ljung-Box")
+
+# Box-Ljung test
+# data:  residuals(modelo_1)
+# X-squared = 0.037264, df = 1, p-value = 0.8469
+```
+
+Observamos el comportamiento de los residuos
+```r
+plot(residuals(modelo_1), main = "Gráfico de los residuales", xlab = "Año", ylab ="")
+```
+![residuales_arima](https://raw.githubusercontent.com/OmarGard/Bedu-F2-Postworks-E4/main/img/residuales_arima.png)
+
+Hacemos el pronóstico para los próximos 12 meses
+```r
+pronostico <- forecast(modelo_1, 12)
+# Observemos que ademas de tener el forecast, tambien podemos observar el límite superior e inferior a un 
+# 80 y 95% de confianza
+# Notemos que el promedio de la suma de goles totales oscila entre 2 y 3 goles para los próximos meses
+```
+```
+Point Forecast    Lo 80    Hi 80    Lo 95    Hi 95
+Jan 2020       2.691815 2.307153 3.076477 2.103525 3.280105
+Feb 2020       2.678214 2.293522 3.062907 2.089878 3.266551
+Mar 2020       2.811488 2.426351 3.196624 2.222472 3.400503
+Apr 2020       2.809167 2.419317 3.199018 2.212943 3.405392
+May 2020       2.833140 2.426608 3.239671 2.211403 3.454876
+Jun 2020       2.695623 2.286357 3.104889 2.069705 3.321542
+Jul 2020       2.705084 2.271171 3.138996 2.041472 3.368696
+Aug 2020       2.737632 2.293179 3.182085 2.057900 3.417364
+Sep 2020       2.785638 2.337584 3.233691 2.100399 3.470876
+Oct 2020       2.772907 2.321089 3.224724 2.081912 3.463902
+Nov 2020       2.771533 2.308155 3.234910 2.062858 3.480207
+Dec 2020       2.739906 2.268697 3.211116 2.019253 3.460559
+```
+
+Graficamos el forecast
+
+```r
+# Con ggplot
+pronostico %>%
+    autoplot(ts.colour = "#0D3B66") +
+    ggtitle("Promedio de la suma mensual total de goles (pronóstico)") +
+    xlab("Año") + ylab("Promedio de goles") +
+    theme_test() +
+    geom_hline(aes(yintercept = mean(serie), color="media")) +
+    scale_color_manual(name = "Estadísticos", values = c(media = "#EE964B"))
+```
+
+![pronostico_arima](https://raw.githubusercontent.com/OmarGard/Bedu-F2-Postworks-E4/main/img/pronostico_arima.png)
+
+
+
+
+
+
