@@ -1,12 +1,3 @@
-#
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
-
 library(shiny)
 library(shinydashboard)
 library(shinythemes)
@@ -40,7 +31,7 @@ ui <-
                             fluidRow(
                                 titlePanel("Gráfica de goles de casa y de visita"), 
                                 selectInput("x", "Seleccione algún valor:",
-                                            choices = names(t_data[-3])),
+                                            choices = c("Goles en casa","Goles de visita")),
                                 
                                 box(plotOutput("plot1", width = 600)),
                                 align = "center"
@@ -74,7 +65,8 @@ ui <-
                                 titlePanel(h3("Escenario con momios promedio")),
                                 img( src = "momios_promedio.png"),
                                 titlePanel(h3("Escenario con momios máximo")),
-                                img( src = "momios_maximo.png")
+                                img( src = "momios_maximo.png"),
+                                align="center"
                             )
                     )
                     
@@ -85,17 +77,17 @@ ui <-
 
 
 server <- function(input, output) {
-        # Lectura de dataset
-        data <- read.csv("https://raw.githubusercontent.com/beduExpert/Programacion-R-Santander-2021/main/Sesion-08/Postwork/match.data.csv")
-        t_data <- table(data[c("home.score","away.score")])
-        t_data <- as.data.frame(t_data)
-        
+    # Lectura de dataset
+    data <- read.csv("https://raw.githubusercontent.com/beduExpert/Programacion-R-Santander-2021/main/Sesion-08/Postwork/match.data.csv")
+    t_data <- table(data[c("home.score","away.score")])
+    t_data <- as.data.frame(t_data)
     
-        #Gráfico de barras
+    
+    #Gráfico de barras
     output$plot1 <- renderPlot({
         
         #Decisión para graficar goles en casa o de visita
-        if (input$x == "home.score") {
+        if (input$x == "Goles en casa") {
             ggplot(t_data, aes(home.score, Freq)) +
                 geom_bar(stat = "identity", color ="black", fill="blue") +
                 facet_wrap(~away.score) +
@@ -120,4 +112,6 @@ server <- function(input, output) {
 
 
 shinyApp(ui, server)
+
+
 
