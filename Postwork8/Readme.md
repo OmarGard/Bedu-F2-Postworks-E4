@@ -57,7 +57,7 @@ ui <-
                             fluidRow(
                                 titlePanel("Gráfica de goles de casa y de visita"), 
                                 selectInput("x", "Seleccione algún valor:",
-                                            choices = names(t_data[-3])),
+                                            choices = c("Goles en casa","Goles de visita")),
                                 
                                 box(plotOutput("plot1", width = 600)),
                                 align = "center"
@@ -91,7 +91,8 @@ ui <-
                                 titlePanel(h3("Escenario con momios promedio")),
                                 img( src = "momios_promedio.png"),
                                 titlePanel(h3("Escenario con momios máximo")),
-                                img( src = "momios_maximo.png")
+                                img( src = "momios_maximo.png"),
+                                align="center"
                             )
                     )
                     
@@ -113,7 +114,7 @@ server <- function(input, output) {
     output$plot1 <- renderPlot({
         
         #Decisión para graficar goles en casa o de visita
-        if (input$x == "home.score") {
+        if (input$x == "Goles en casa") {
             ggplot(t_data, aes(home.score, Freq)) +
                 geom_bar(stat = "identity", color ="black", fill="blue") +
                 facet_wrap(~away.score) +
