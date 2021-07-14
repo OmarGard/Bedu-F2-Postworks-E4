@@ -64,7 +64,7 @@ Importamos el dataframe almacenado como csv del postwork 2
   contingency_table
   ```
   
-  #### 1. PROBABILIDADES MARGINALES
+  #### 1. Probabilidades marginales
   Dividimos cada celda por el total de goles para obtener las probabilidades
   ```r
   for (i in 1:nrow(contingency_table)){
