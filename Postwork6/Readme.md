@@ -168,7 +168,7 @@ Ahora si observamos la esperanza de la nueva serie, podemos notar que:
 
 ![\Large E(Z_t) = B_1](https://latex.codecogs.com/svg.latex?\Large&space;E[Z_t]=B_1)
 
-ya que B_1 es una constante así que no se ve afectada, y (e_t - e_(t-1)) son errores que se asumen vienen de una distribución de ruido blanco o normal N(0,..).
+Ya que B_1 es una constante así que no se ve afectada, y (e_t - e_(t-1)) son errores que se asumen vienen de una distribución de ruido blanco o normal N(0,..).
 
  Y si observamos la varianza, podemos notar que:
  
@@ -176,7 +176,7 @@ ya que B_1 es una constante así que no se ve afectada, y (e_t - e_(t-1)) son er
  
 ya que B_1 es una constante, así que no afecta la varianza, y (e_t - e_(t-1)) son errores independientes uno del otro, ya que vienen de una distribución normal, así que podemos tomar la suma  de sus varianzas, y supongamos que la varianza de e_t es algún número K^2.
 
-Entonces la varianza de  e_(t-1) es igual k^2. 
+Entonces la varianza de  e₍ₜ₋₁₎ es igual k^2. 
 
 Ya que provienen de la misma distribución, entonces nos queda:
 
@@ -224,7 +224,7 @@ summary(y3)
 #     1pct  5pct 10pct
 # tau1 -2.58 -1.95 -1.62
 ```
-Ahora podemos notar que el valor del estadístico de prueba es -13.8505, y es muchísimo menor que cualquier valor de significancia del 99%,95% y 90%. Por lo tanto tenemos una serie estacionaria a la cuál le podemos aplicar algún modelo de autoregresión.
+Ahora podemos notar que el valor del estadístico de prueba es -13.8505, y es muchísimo menor que cualquier valor de significancia del 99%,95% y 90%. Por lo tanto tenemos una serie estacionaria a la cual le podemos aplicar algún modelo de autoregresión.
 
 
 
@@ -249,8 +249,8 @@ tsdiag(modelo_1)
 ![diagnostico_arima](https://raw.githubusercontent.com/OmarGard/Bedu-F2-Postworks-E4/main/img/diagnostico_arima.png)
 
 Aplicamos el test de Ljung-Box para comprobar si hay ruido blanco, donde: \
-Ho = Hay presencia de ruido blanco \
-Ha = No hay presencia de ruido blanco
+Hₒ = Hay presencia de ruido blanco \
+Hₐ = No hay presencia de ruido blanco
 ```r
 Box.test(residuals(modelo_1), type ="Ljung-Box")
 
