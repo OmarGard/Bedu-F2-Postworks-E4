@@ -212,7 +212,7 @@ Así, en nuestra tabla de cocientes, tenemos la probabilidad conjunta dividida e
 
 Tomando como recordatorio el teorema del límite central, sabemos que dada una muestra de tamaño n > 30, la distribución de las medias muestrales tiende a ser una distribución normal. Así que podemos realizar una prueba de hipótesis para probar la independencia de las variables ya que para que X y Y sean independientes, la media debe de ser igual 1.
   
-Podemos darnos una mejor idea de que es posible de que vengan de una distribución normal si observamos la gráfica de cuántiles normales de las medias.
+Podemos darnos una mejor idea de que es posible que vengan de una distribución normal si observamos la gráfica de cuántiles normales de las medias.
 ```r
   qqnorm(myBootstrap$t[,2])
   qqline(myBootstrap$t[,2])
