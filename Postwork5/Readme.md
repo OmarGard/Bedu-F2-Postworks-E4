@@ -32,7 +32,7 @@
   # 6 6 2017-08-20 Ath Bilbao     Getafe    0    0   D
   ```
   
-3. Seleccionamos variables de interes
+3. Seleccionamos variables de interés
 ```r
   SmallData <- df %>%
     select(Date, HomeTeam, AwayTeam, FTHG, FTAG)
@@ -121,7 +121,7 @@
   # 25 Malaga      -1.18 0.58   0.76    Malaga        38         
   # 26 Las Palmas  -1.44 0.59   0.62    Las Palmas    38
   ```
-8. Estimacion de probabilidades
+8. Estimación de probabilidades
 ```r
   predict(ranking, date = fecha[n])
   # Predicted Match Results for 1900-05-01 to 2100-06-01
@@ -177,7 +177,7 @@ Lo siguiente será tratar de encontrar la proporción de goles anotados en compa
   away.df <- away.df %>%
     rename(goals = Var1)
 ```
-9.5 Creamos un único dataframe mexclando los de local y visitante
+9.5 Creamos un único dataframe mezclando los de local y visitante
 ```r
   home_away.df <- rbind(home.df,away.df)
   # Transformamos el tipo de dato de la columna de goals, ya que es 
@@ -208,8 +208,8 @@ Lo siguiente será tratar de encontrar la proporción de goles anotados en compa
 ```
 ![num_goles_partido](https://user-images.githubusercontent.com/60225087/125345717-7ec07c00-e31e-11eb-815d-c738ec0f4292.png)
 
-10. Análisis Leganes - Sevilla: Ahora analizaremos uno de los partidos predecidos por nuestro modelo, el cuál es:
-- 2020-12-23 Leganes vs Sevilla, HW 22%, AW 50%, T 27%, pred score 0.8-1.4  actual: T (1-1)
+10. Análisis Leganés - Sevilla: Ahora analizaremos uno de los partidos predecidos por nuestro modelo, el cual es:
+- 2020-12-23 Leganés vs Sevilla, HW 22%, AW 50%, T 27%, pred score 0.8-1.4  actual: T (1-1)
   
 10.1 Obtenemos los dataframes de los goles de local y visitante para ambos equipos
 ```r
@@ -238,7 +238,7 @@ Lo siguiente será tratar de encontrar la proporción de goles anotados en compa
   poisson.sevilla.home <- dpois(c(0,1,2,3,5),sum(sevilla.home.df[,"Var1"]*sevilla.home.df[,"Freq"]))
   poisson.sevilla.away <- dpois(c(0,1,2,3,4,6),sum(sevilla.away.df[,"Var1"]*sevilla.away.df[,"Freq"]))
 ```
-10.4 Agregamos la clase de las tuplas, la vairable auxiliar x_, y la predicción de Poisson y una columna nueva div que nos ayudará a poder hacer un facet_grid en los resultados, ya que ahora estamos considerando una variable extra en la gráfica para los 4 dataframes
+10.4 Agregamos la clase de las tuplas, la variable auxiliar x_, y la predicción de Poisson y una columna nueva div que nos ayudará a poder hacer un facet_grid en los resultados, ya que ahora estamos considerando una variable extra en la gráfica para los 4 dataframes
 ```r
   leganes.home.df <- leganes.home.df %>%
     mutate(
@@ -284,7 +284,7 @@ Lo siguiente será tratar de encontrar la proporción de goles anotados en compa
 ```r
   leganes_sevilla <- rbind(leganes.home.df,leganes.away.df,sevilla.home.df,sevilla.away.df)
 ```
-Podemos ver que incluso separando los valores por equipos específicos y de diferentes bandos de juego, la distribución de Poisson sigue dando resultados muy acertados a los valores reales, con esto podemos darnos y convencernos que el número de goles anotados por cada equipo puede ser aproximado usando una distribución de Poisson.
+Podemos ver que incluso separando los valores por equipos específicos y de diferentes bandos de juego, la distribución de Poisson sigue dando resultados muy acertados a los valores reales, con esto podemos darnos y convencernos de que el número de goles anotados por cada equipo puede ser aproximado usando una distribución de Poisson.
 ```r
   leganes_sevilla %>%
     ggplot() +
@@ -306,7 +306,7 @@ Podemos ver que incluso separando los valores por equipos específicos y de dife
   ranks.df <- print.fbRanks(ranking)
   ranks.df<- as.data.frame(ranks.df)
 ```
-10.7 Vamos a calcular los goles esperados para este partido por el Leganes al Sevilla, y ay que el Leganes es Local y Sevilla visitante, los goles esperados siguen la siguiente fórmula: E_equipoA_equipoB = Fuerza de Ataque(Equipo A) * Fuerza de Defensa(Equipo B) * Media de goles de local de la liga
+10.7 Vamos a calcular los goles esperados para este partido por el Leganés al Sevilla, y ay que el Leganés es Local y Sevilla visitante, los goles esperados siguen la siguiente fórmula: E_equipoA_equipoB = Fuerza de Ataque(Equipo A) * Fuerza de Defensa(Equipo B) * Media de goles de local de la liga
 ```r
   expectedGoals.leganes <- as.numeric(subset(ranks.df,(ranks.team=="Leganes"))["ranks.attack"]) * 
     as.numeric(subset(ranks.df,(ranks.team=="Sevilla"))["ranks.defense"]) * 
@@ -314,7 +314,7 @@ Podemos ver que incluso separando los valores por equipos específicos y de dife
   expectedGoals.leganes
   # [1] 1.215251
   ```
-10.8 De igual manera obtenemos los goles esperados del Sevilla al Leganes
+10.8 De igual manera obtenemos los goles esperados del Sevilla al Leganés
 ```r
   expectedGoals.sevilla <- as.numeric(subset(ranks.df,(ranks.team=="Sevilla"))["ranks.attack"]) * 
     as.numeric(subset(ranks.df,(ranks.team=="Leganes"))["ranks.defense"]) * 
@@ -331,7 +331,7 @@ Podemos ver que incluso separando los valores por equipos específicos y de dife
   probs.sevilla
   # [1] 0.231880127 0.338900860 0.247657689 0.120653439 0.044084798 0.012886293 0.003138961
 ```
-Podemos notar que para abos equipos, anotar 1 gol tiene la mayor probabilidad dentro de todos. Así que calcularemos ahora la probabilidad de que empaten para ver si el 1-1 es un resultado realmente posible
+Podemos notar que para ambos equipos, anotar 1 gol tiene la mayor probabilidad dentro de todos. Así que calcularemos ahora la probabilidad de que empaten para ver si el 1-1 es un resultado realmente posible
   
 10.10 Crearemos una matriz de las probabilidades conjuntas de que cada equipo anote una cierta cantidad de goles
 ```r
