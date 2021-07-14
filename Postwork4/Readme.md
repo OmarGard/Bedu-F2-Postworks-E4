@@ -112,7 +112,7 @@ Ahora investigarás la dependencia o independencia del número de goles anotados
   # 8   0.000000000 0.000000000 4.710743802 0.000000000 0.000000000 0.000000000 0.000000000 0.000877193
   # Sum 0.351754386 0.340350877 0.212280702 0.054385965 0.028947368 0.009649123 0.002631579 1.000000000
   ```
-8. Convertimos los cocientes a df para manipularlos
+8. Convertimos los cocientes a data frame para manipularlos
   ```r
   quotionents.df <- data.frame(quotients)
   
@@ -129,11 +129,11 @@ Ahora investigarás la dependencia o independencia del número de goles anotados
   ```r
   quotionents.df <- filter(quotionents.df, FTHG != "Sum" & FTAG != "Sum")
   ```
-10. Establecemos la muestra de la cuál obtendremos las muestras bootstrap que es la tabla de los cocientes
+10. Establecemos la muestra de la cual obtendremos las muestras bootstrap que es la tabla de los cocientes
   ```r
   sample <-data[,c("FTHG","FTAG")]
   ```
-11. Funcion para calcular los estadísticos del bootstrapping, que en este caso serán la media y mediana
+11. Función para calcular los estadísticos del bootstrapping, que en este caso serán la media y mediana
   ```r
   funcion.estadistico <- function(data, indices)
   {
@@ -187,10 +187,11 @@ Ahora investigarás la dependencia o independencia del número de goles anotados
   # 1  0.88144 -0.052924 0.080662 0.83958
   # 2  0.85957  0.033829 0.070354 0.88652
   ```
-NOTA SOBRE INDEPENDENCIA DE LAS VARIABLES
+Nota sobre independencia de las variables:
+
 Cuando los eventos son mutuamente excluyentes (Independientes), la probabilidad conjunta de A y B es igual a la probabilidad marginal de A multiplicada por la de B, P(A y B) = P(A) * P(B).
   
-Asi, en nuestra tabla de cocientes, tenemos la probabilidad conjunta dividida entre la probabilidad de las probas marginales. Por lo que un cociente de 1 implicaria que estamos dividiendo entre la probabilidad conjunta, es decir que los eventos son mutuamente excluyentes.
+Así, en nuestra tabla de cocientes, tenemos la probabilidad conjunta dividida entre la probabilidad de las probas marginales. Por lo que un cociente de 1 implicaría que estamos dividiendo entre la probabilidad conjunta, es decir que los eventos son mutuamente excluyentes.
 
 14. Graficamos la distribución de las medias de las muestras bootstrap
 ```r
@@ -211,7 +212,7 @@ Asi, en nuestra tabla de cocientes, tenemos la probabilidad conjunta dividida en
 
 Tomando como recordatorio el teorema del límite central, sabemos que dada una muestra de tamaño n > 30, la distribución de las medias muestrales tiende a ser una distribución normal. Así que podemos realizar una prueba de hipótesis para probar la independencia de las variables ya que para que X y Y sean independientes, la media debe de ser igual 1.
   
-Podemos darnos una mejor idea de que es posible de que vengan de una distribución normal si observamos la gráfica de cuantiles normales de las medias.
+Podemos darnos una mejor idea de que es posible de que vengan de una distribución normal si observamos la gráfica de cuántiles normales de las medias.
 ```r
   qqnorm(myBootstrap$t[,2])
   qqline(myBootstrap$t[,2])
@@ -226,9 +227,11 @@ Podemos darnos una mejor idea de que es posible de que vengan de una distribuci�
  ```
 ![densidad_medias_muestrales](https://user-images.githubusercontent.com/60225087/125336451-672fc600-e313-11eb-8b47-54b0c6f41fa9.png)
 
-Llevaremos a cabo una prueba de Shapiro Test para probar lo siguiente
-- H0:μ=1
-- H1:μ≠1
+Llevaremos a cabo una prueba de Shapiro Test para probar lo siguiente:
+
+- H₀μ=1
+- H₁μ≠1
+
 ```r
   t.test(x=myBootstrap$t[,2], mu = 1,alternative = "two.sided")
   # One Sample t-test
