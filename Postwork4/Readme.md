@@ -230,8 +230,8 @@ Podemos darnos una mejor idea de que es posible que vengan de una distribución 
 
 Llevaremos a cabo una prueba de Shapiro Test para probar lo siguiente:
 
-- H₀μ=1
-- H₁μ≠1
+- H₀ μ=1
+- H₁ μ≠1
 
 ```r
   t.test(x=myBootstrap$t[,2], mu = 1,alternative = "two.sided")
