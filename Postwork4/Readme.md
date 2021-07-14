@@ -189,7 +189,9 @@ Ahora investigarás la dependencia o independencia del número de goles anotados
   ```
 >Nota sobre independencia de las variables:
 
->Cuando los eventos son mutuamente excluyentes (Independientes), la probabilidad conjunta de A y B es igual a la probabilidad marginal de A multiplicada por la de B, P(A y B) = P(A) * P(B).
+>Cuando los eventos son mutuamente excluyentes (Independientes), la probabilidad conjunta de A y B es igual a la probabilidad marginal de A multiplicada por la de B:
+
+>  P(A y B) = P(A) * P(B).
   
 Así, en nuestra tabla de cocientes, tenemos la probabilidad conjunta dividida entre la probabilidad de las probas marginales. Por lo que un cociente de 1 implicaría que estamos dividiendo entre la probabilidad conjunta, es decir que los eventos son mutuamente excluyentes.
 
