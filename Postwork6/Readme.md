@@ -174,7 +174,7 @@ Ya que B₁ es una constante así que no se ve afectada, y (eₜ - e₍ₜ₋₁
  
  ![\Large Var(Z_t) = 2K^2](https://latex.codecogs.com/svg.latex?\Large&space;Var[Z_t]=2K^2)
  
-ya que B_1 es una constante, así que no afecta la varianza, y (eₜ - e₍ₜ₋₁₎) son errores independientes uno del otro, ya que vienen de una distribución normal, así que podemos tomar la suma  de sus varianzas, y supongamos que la varianza de eₜ es algún número K².
+Ya que B₁ es una constante, así que no afecta la varianza, y (eₜ - e₍ₜ₋₁₎) son errores independientes uno del otro, ya que vienen de una distribución normal, así que podemos tomar la suma  de sus varianzas, y supongamos que la varianza de eₜ es algún número K².
 
 Entonces la varianza de  e₍ₜ₋₁₎ es igual k². 
 
