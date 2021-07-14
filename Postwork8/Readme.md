@@ -27,7 +27,7 @@ library(shinydashboard)
 library(shinythemes)
 library(ggplot2)
 ```
-2. Construímos los elementos que se mostrarán en la aplicación
+2. Construimos los elementos que se mostrarán en la aplicación
 ```r
 ui <- 
 
@@ -145,18 +145,23 @@ shinyApp(ui, server)
 ### Visualización de la interfaz
 
 Pestaña 1: Gráfica de goles en casa
+
 ![Tab1_graph1](https://raw.githubusercontent.com/OmarGard/Bedu-F2-Postworks-E4/main/img/tab1_graph1.png)
 
 Pestaña 1: Gráfica de goles de visita
+
 ![Tab1_graph2](https://raw.githubusercontent.com/OmarGard/Bedu-F2-Postworks-E4/main/img/tab1_graph2.png)
 
 Pestaña 2: Imágenes obtenidas en el Postwork 3
+
 ![Tab2](https://raw.githubusercontent.com/OmarGard/Bedu-F2-Postworks-E4/main/img/tab2.png)
 
 Pestaña 3: Data table del fichero `match.data.csv`
+
 ![Tab3](https://raw.githubusercontent.com/OmarGard/Bedu-F2-Postworks-E4/main/img/tab3.png)
 
 Pestaña 4: Gráficas de factores de ganancia
+
 ![Tab4](https://raw.githubusercontent.com/OmarGard/Bedu-F2-Postworks-E4/main/img/tab4.png)
 
 
