@@ -43,7 +43,7 @@ query <- mongo_conn$find(
 class(query)
 #[1] "data.frame"
 ```
-Podemos ver que el real madrid metió 10 goles contra el Rayo Vallecano
+Podemos ver que el real Madrid metió 10 goles contra el Rayo Vallecano
 ```r
 query
 # date         home.team   home.score away.team away.score
