@@ -97,7 +97,7 @@ Importamos el dataframe almacenado como csv del postwork 2
     }
   }
   ```
-  #### 2. GRAFICOS DE LAS PROBABILIDADES
+  #### 2. Gráficos de las probabilidades
   Creación de gráfico de goles anotados como visitante
   ```r
   barplot(contingency_table[-10,"Sum"],
