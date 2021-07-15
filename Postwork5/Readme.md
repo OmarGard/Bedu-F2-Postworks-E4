@@ -132,7 +132,7 @@
   # 2020-12-23 Vallecano vs Levante, HW 26%, AW 52%, T 22%, pred score 1.3-1.9  actual: HW (2-1)
   # ----------------------------------------------------------------------------------------------
 ```
-Podemos ver que los equipos que han sido más anotadores en el pasado tienen una mayor probabilidad de anotar goles en el futuro. Es un buen momento para presentar la distribución de Poisson.Es una distribución de probabilidad discreta que describe la probabilidad del número de eventos en un período de tiempo específico (por ejemplo, 90 minutos) con una tasa media conocida de ocurrencia. Un supuesto clave es que el número de eventos es independiente del tiempo. 
+Podemos ver que los equipos que han sido más anotadores en el pasado tienen una mayor probabilidad de anotar goles en el futuro. Es un buen momento para presentar la distribución de Poisson. Es una distribución de probabilidad discreta que describe la probabilidad del número de eventos en un período de tiempo específico (por ejemplo, 90 minutos) con una tasa media conocida de ocurrencia. Un supuesto clave es que el número de eventos es independiente del tiempo. 
 
 En nuestro contexto, esto significa que los goles no se vuelven más o menos probables por el número de goles ya marcados en el partido. 
 
@@ -306,7 +306,7 @@ Podemos ver que incluso separando los valores por equipos específicos y de dife
   ranks.df <- print.fbRanks(ranking)
   ranks.df<- as.data.frame(ranks.df)
 ```
-10.7 Vamos a calcular los goles esperados para este partido por el Leganés al Sevilla, y ay que el Leganés es Local y Sevilla visitante, los goles esperados siguen la siguiente fórmula: E_equipoA_equipoB = Fuerza de Ataque(Equipo A) * Fuerza de Defensa(Equipo B) * Media de goles de local de la liga
+10.7 Vamos a calcular los goles esperados para este partido por el Leganés al Sevilla, ya que el Leganés es Local y Sevilla visitante, los goles esperados siguen la siguiente fórmula: E_equipoA_equipoB = Fuerza de Ataque(Equipo A) * Fuerza de Defensa(Equipo B) * Media de goles de local de la liga
 ```r
   expectedGoals.leganes <- as.numeric(subset(ranks.df,(ranks.team=="Leganes"))["ranks.attack"]) * 
     as.numeric(subset(ranks.df,(ranks.team=="Sevilla"))["ranks.defense"]) * 
