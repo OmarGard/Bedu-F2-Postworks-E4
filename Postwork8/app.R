@@ -42,10 +42,10 @@ ui <-
                     tabItem(tabName = "graph", 
                             fluidRow(
                                 titlePanel(h3("Probabilidades marginales")),
-                                img(src = "Postwork3(1).png", height = 300, width = 300),
-                                img(src = "Postwork3(2).png", height = 300, width = 300),
+                                img(src = "https://raw.githubusercontent.com/OmarGard/Bedu-F2-Postworks-E4/main/Postwork8/www/Postwork3(1).png", height = 300, width = 300),
+                                img(src = "https://raw.githubusercontent.com/OmarGard/Bedu-F2-Postworks-E4/main/Postwork8/www/Postwork3(2).png", height = 300, width = 300),
                                 titlePanel(h3("Mapa de calor de probabilidades conjuntas")),
-                                img(src = "Postwork3(3).png",align="center"), 
+                                img(src = "https://raw.githubusercontent.com/OmarGard/Bedu-F2-Postworks-E4/main/Postwork8/www/Postwork3(3).png",align="center"), 
                                 align="center"
                             )
                     ),
@@ -63,9 +63,9 @@ ui <-
                     tabItem(tabName = "img",
                             fluidRow(
                                 titlePanel(h3("Escenario con momios promedio")),
-                                img( src = "momios_promedio.png"),
+                                img( src = "https://raw.githubusercontent.com/OmarGard/Bedu-F2-Postworks-E4/main/Postwork8/www/momios_promedio.png"),
                                 titlePanel(h3("Escenario con momios máximo")),
-                                img( src = "momios_maximo.png"),
+                                img( src = "https://raw.githubusercontent.com/OmarGard/Bedu-F2-Postworks-E4/main/Postwork8/www/momios_maximo.png"),
                                 align="center"
                             )
                     )
