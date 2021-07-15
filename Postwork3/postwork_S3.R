@@ -22,7 +22,8 @@
   
   rootwd <- "E:/ecardoz/Bedu-F2-Postworks-E4"
   
-  setwd(paste0(rootwd,""))
+  setwd(rootwd)
+  
   # Importamos el dataframe almacenado como csv del prework 2
   data <- read.csv("https://raw.githubusercontent.com/OmarGard/Bedu-F2-Postworks-E4/main/output_data/postwork_2/D1_17_18_19.csv")
   
@@ -74,7 +75,7 @@
           names.arg=rownames(contingency_table[-10,]),
           col="#70D1E0")
   
-  # Un gráfico grafico de goles en casa
+  # Un gráfico de goles en casa
   barplot(contingency_table["Sum",-8],
           xlab="Número de goles anotados",
           ylab="Probabilidades",

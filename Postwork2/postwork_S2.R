@@ -55,6 +55,8 @@
     files <- lapply(files, select, Date, HomeTeam:FTR)
     
     # 4. Acomodamos fechas
+    files[1] <- lapply(files[1], mutate, Date = as.Date(Date, "%Y-%m-%d"))
+    
     files <- lapply(files, mutate, Date = as.Date(Date,"%d/%m/%y"))
     files[2] 
     
