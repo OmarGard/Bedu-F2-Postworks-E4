@@ -140,7 +140,7 @@ Y obtenemos lo siguiente:
 ```
 Notamos que para un valor del 99%, 95% y 90% de significancia, el estadístico de prueba supera a todas las pruebas, así que por lo tanto nuestra serie es __no estacionaria__.
 
-Partiendo de la hipótesis de que la serie tiene raíces unitarias, podemos idealizar una forma en la que podemos hacer nuestra serie estacionaria. Supongamos que nuestra serie se puede modelas de la siguiente forma:
+Partiendo de la hipótesis de que la serie tiene raíces unitarias, podemos idealizar una forma en la que podemos hacer nuestra serie estacionaria. Supongamos que nuestra serie se puede modelar de la siguiente forma:
 
 ![\Large Y_t=\beta_0 +\beta_1t+\epsilon_t](https://latex.codecogs.com/svg.latex?\Large&space;Y_t=\beta_0+\beta_1t+\epsilon_t) 
 
@@ -241,8 +241,7 @@ modelo_1 <- arima(serie, order = c(5,1,2))
 ```
 
 Observamos el diagnóstico del modelo utilizando tsdiag() \
-En donde se observa que los errores estandarizados tienen un comportamiento de ruido blanco, mientras que los valores p del estadístico Ljung-Box \
-se encuentran por encima de 0.05
+En donde se observa que los errores estandarizados tienen un comportamiento de ruido blanco, mientras que los valores p del estadístico Ljung-Box se encuentran por encima de 0.05
 ```r
 tsdiag(modelo_1)
 ```
