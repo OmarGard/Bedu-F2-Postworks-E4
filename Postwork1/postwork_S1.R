@@ -13,7 +13,8 @@
   # que jugaron en casa (FTHG) y los goles anotados por los equipos que jugaron como visitante (FTAG)
   
   # 3. Consulta cómo funciona la función table en R al ejecutar en la consola ?table
-
+  
+  library(dplyr)
   
   # 1. Cargamos los datos
   data <-  read.csv("https://raw.githubusercontent.com/OmarGard/Bedu-F2-Postworks-E4/main/source_data/postwork_1/SP1.csv")
@@ -54,7 +55,6 @@
   proba_home <- rename(proba_home, goles = Var1, Proba_Home = Freq)
   
   
-  library(dplyr)
   tabla <- full_join(proba_home, proba_away, by = "goles")
   tabla
   
