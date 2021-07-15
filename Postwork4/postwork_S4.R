@@ -217,7 +217,7 @@
             main = "Densidad de las medias muestrales Bootstrap",
             xlab = "Medias", ylab="Densidad")
  
-  # Llevaremos a cabo una prueba de Shapiro Test para probar lo siguiente
+  # Llevaremos a cabo una prueba de hipótesis para probar lo siguiente
   # H0:μ=1
   # H1:μ≠1
   
